@@ -1,4 +1,4 @@
-*.exe
-*.out
-*.app
-*.class
+**/*.exe
+**/*.out
+**/*.app
+**/*.class
