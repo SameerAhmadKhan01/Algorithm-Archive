@@ -15,6 +15,7 @@ class LinkedListStack{
     }
 
     //function to check stack is full or not 
+    @SuppressWarnings("unused")
     public boolean isFull() {
     try {
         Node t = new Node();  
