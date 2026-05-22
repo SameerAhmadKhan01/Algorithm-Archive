@@ -14,10 +14,8 @@ public:
 
 class Tree
 {
-private:
-    Node *root;
-
 public:
+    Node *root;
     Tree();
     ~Tree();
     void CreateTree();
@@ -32,6 +30,7 @@ public:
     int Height(Node *p);
     int Height() { return Height(root); }
     int Count(Node *p);
+    int Count() { return Count(root); }
 };
 
 Tree::Tree()
@@ -168,18 +167,17 @@ int Tree::Height(Node *p)
 }
 
 // Recursive Function to find out the  NUMBER OF NODES
-int Tree::Count(Node *p){
-    int x , y;
-    if(p!=NULL){
-        x=Count(p->lchild);
-        y=Count(p->rchild);
-        return x+y+1;
+int Tree::Count(Node *p)
+{
+    int x, y;
+    if (p != NULL)
+    {
+        x = Count(p->lchild);
+        y = Count(p->rchild);
+        return x + y + 1;
     }
     return 0;
 }
-
-
-
 
 int main()
 {
@@ -207,14 +205,6 @@ int main()
 
     cout << "Height: " << bt.Height() << endl;
 
-    cout << "Iterative Preorder: " << flush;
-    bt.iterativePreorder();
-
-    cout << "Iterative Inorder: " << flush;
-    bt.iterativeInorder();
-
-    cout << "Iterative Postorder: " << flush;
-    bt.iterativePostorder();
-
+    cout << "Number OF NODES : " << bt.Count();
     return 0;
 }
