@@ -14,9 +14,10 @@ public:
 
 class Tree
 {
-public:
+private:
     Node *root;
     void DestroyTree(Node *p);
+
 public:
     Tree();
     ~Tree();
@@ -40,24 +41,21 @@ Tree::Tree()
     root = nullptr;
 }
 
-
 void Tree::DestroyTree(Node *p)
 {
     if (p != nullptr)
     {
-        DestroyTree(p->lchild);  
-        DestroyTree(p->rchild); 
-        delete p;               
+        DestroyTree(p->lchild);
+        DestroyTree(p->rchild);
+        delete p;
     }
 }
 
-
 Tree::~Tree()
 {
-    DestroyTree(root); 
-    root = nullptr; 
+    DestroyTree(root);
+    root = nullptr;
 }
-
 
 void Tree::CreateTree()
 {
