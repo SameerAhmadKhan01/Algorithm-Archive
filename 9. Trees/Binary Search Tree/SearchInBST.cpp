@@ -24,4 +24,17 @@ Node *Rsearch(Node *t, int key)
         return Rsearch(t->left, key);
 }
 
-
+// Iterative Solution
+Node *SearchInBST(Node *t, int val)
+{
+    while (t != nullptr)
+    {
+        if (t->data == val)
+            return t;
+        else if (t->data > val)
+            t = t->left;
+        else
+            t = t->right;
+    }
+    return NULL;
+}
