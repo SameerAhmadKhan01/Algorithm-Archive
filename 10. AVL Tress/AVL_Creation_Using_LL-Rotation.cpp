@@ -30,9 +30,9 @@ int balanceFactor(struct TreeNode *p)
 }
 
 struct TreeNode *RRRotation(struct TreeNode *p) { return NULL; }
-struct TreeNode *LRRotation(struct TreeNode *p) { return NULL; }
 struct TreeNode *RLRotation(struct TreeNode *p) { return NULL; }
 
+//function to perform LL roation
 struct TreeNode *LLRotation(struct TreeNode *p)
 {
     struct TreeNode *pl = p->left;
@@ -46,6 +46,27 @@ struct TreeNode *LLRotation(struct TreeNode *p)
         root = pl;
 
     return pl;
+}
+
+//Function to perform LR rotation
+TreeNode* LRRotation(TreeNode *p){
+    TreeNode *pl = p->left;
+    TreeNode *plr = p->right;
+
+    pl->right = plr->left;
+    plr->left = plr->right;
+
+    plr->left = pl;
+    plr->right = p;
+
+    pl->height = NodeHeight(pl);
+    p->height = NodeHeight(p);
+    plr->height = NodeHeight(plr);
+
+    if(root==p) root = plr;
+
+    return plr;
+
 }
 
 // RECURSIVE INSERT IN A BST
